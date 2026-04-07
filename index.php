@@ -21,7 +21,7 @@ function galPath($img)
     $dir = $img['category'] === 'environment' ? 'environment'
          : ($img['category'] === 'rooms' ? 'rooms'
          : 'gallery');
-    return '/homestay/uploads/' . $dir . '/' . $img['filename'];
+    return '/uploads/' . $dir . '/' . $img['filename'];
 }
 ?>
 <!DOCTYPE html>
@@ -33,14 +33,14 @@ function galPath($img)
 <meta name="description" content="ที่พัก Pet Friendly ใจกลางกรุงเทพฯ รับทั้งหมา แมว และสัตว์เลี้ยง มีคอกเต่า บรรยากาศร่มรื่น">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
 <!-- ====== NAVBAR ====== -->
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a href="/homestay/" class="nav-brand">
+    <a href="/" class="nav-brand">
       <span class="brand-icon">🌿</span>
       <span><?= $siteName ?></span>
     </a>
@@ -53,7 +53,7 @@ function galPath($img)
       <li><a href="#gallery">แกลเลอรี่</a></li>
       <li><a href="#location">ที่ตั้ง</a></li>
       <li><a href="#reviews">รีวิว</a></li>
-      <li><a href="/homestay/booking.php" class="btn-nav-book">จองที่พัก</a></li>
+      <li><a href="/booking.php" class="btn-nav-book">จองที่พัก</a></li>
     </ul>
   </div>
 </nav>
@@ -62,7 +62,7 @@ function galPath($img)
 <section class="hero" id="hero">
   <div class="hero-bg">
     <?php if (!empty($heroImage)): ?>
-      <img src="/homestay/uploads/gallery/<?= sanitize($heroImage) ?>" alt="<?= $siteName ?>" class="hero-bg-img">
+      <img src="/uploads/gallery/<?= sanitize($heroImage) ?>" alt="<?= $siteName ?>" class="hero-bg-img">
     <?php else: ?>
       <div class="hero-gradient"></div>
     <?php endif; ?>
@@ -83,7 +83,7 @@ function galPath($img)
       🐕 Dog Friendly &nbsp;·&nbsp; 🐱 Cat Friendly &nbsp;·&nbsp; 🐢 มีคอกเต่า
     </div>
     <div class="hero-actions">
-      <a href="/homestay/booking.php" class="btn-primary">จองที่พัก →</a>
+      <a href="/booking.php" class="btn-primary">จองที่พัก →</a>
       <a href="#gallery" class="btn-outline">ชมรูปภาพ</a>
     </div>
   </div>
@@ -151,7 +151,7 @@ function galPath($img)
           <span class="chip">🧹 สะอาด</span>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
-          <a href="/homestay/booking.php" class="btn-primary">จองที่พักเลย</a>
+          <a href="/booking.php" class="btn-primary">จองที่พักเลย</a>
           <a href="#contact" class="btn-outline-dark">ติดต่อเรา</a>
         </div>
       </div>
@@ -242,7 +242,7 @@ for ($i = 0; $i < 4; $i++):
       <div class="room-card">
         <div class="room-img-wrap">
           <?php if (!empty($room['cover_image'])): ?>
-            <img src="/homestay/uploads/rooms/<?= sanitize($room['cover_image']) ?>" alt="<?= sanitize($room['name']) ?>" class="room-img">
+            <img src="/uploads/rooms/<?= sanitize($room['cover_image']) ?>" alt="<?= sanitize($room['name']) ?>" class="room-img">
           <?php else: ?>
             <div class="room-img-placeholder">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
@@ -268,7 +268,7 @@ for ($i = 0; $i < 4; $i++):
             <?php endforeach; ?>
           </div>
           <?php endif; ?>
-          <a href="/homestay/booking.php?room_id=<?= $room['id'] ?>" class="btn-book-room">จองห้องนี้ →</a>
+          <a href="/booking.php?room_id=<?= $room['id'] ?>" class="btn-book-room">จองห้องนี้ →</a>
         </div>
       </div>
       <?php endforeach; ?>
@@ -404,7 +404,7 @@ for ($i = 0; $i < 4; $i++):
     </div>
     <?php else: ?>
     <div class="gallery-empty">
-      <p>📷 ยังไม่มีรูปภาพ · <a href="/homestay/admin/upload.php">อัพโหลดผ่าน Admin Panel</a></p>
+      <p>📷 ยังไม่มีรูปภาพ · <a href="/admin/upload.php">อัพโหลดผ่าน Admin Panel</a></p>
     </div>
     <?php endif; ?>
   </div>
@@ -538,8 +538,8 @@ for ($i = 0; $i < 4; $i++):
       <?php endforeach; ?>
     </div>
     <div class="reviews-actions">
-      <a href="/homestay/feed.php" class="btn-outline-dark">ดูรีวิวทั้งหมด</a>
-      <a href="/homestay/feed.php#write-review" class="btn-primary">✏️ เขียนรีวิว</a>
+      <a href="/feed.php" class="btn-outline-dark">ดูรีวิวทั้งหมด</a>
+      <a href="/feed.php#write-review" class="btn-primary">✏️ เขียนรีวิว</a>
     </div>
   </div>
 </section>
@@ -579,7 +579,7 @@ for ($i = 0; $i < 4; $i++):
     <div class="contact-cta">
       <p>จองที่พักล่วงหน้าเพื่อความมั่นใจ หรือสอบถามข้อมูลเพิ่มเติมได้เลย</p>
       <div class="contact-btns">
-        <a href="/homestay/booking.php" class="btn-cta-light">📅 จองที่พักเลย</a>
+        <a href="/booking.php" class="btn-cta-light">📅 จองที่พักเลย</a>
         <a href="https://line.me/ti/p/<?= sanitize($settings['line_id'] ?? '') ?>" class="btn-cta-line" target="_blank">💬 LINE: <?= sanitize($settings['line_id'] ?? '') ?></a>
       </div>
     </div>
@@ -606,10 +606,10 @@ for ($i = 0; $i < 4; $i++):
         <h4>เมนู</h4>
         <ul>
           <li><a href="#rooms">ห้องพัก</a></li>
-          <li><a href="/homestay/booking.php">จองที่พัก</a></li>
+          <li><a href="/booking.php">จองที่พัก</a></li>
           <li><a href="#pets">Pet Friendly</a></li>
           <li><a href="#amenities">สิ่งอำนวยความสะดวก</a></li>
-          <li><a href="/homestay/feed.php">รีวิว</a></li>
+          <li><a href="/feed.php">รีวิว</a></li>
           <li><a href="#gallery">แกลเลอรี่</a></li>
         </ul>
       </div>
@@ -625,8 +625,8 @@ for ($i = 0; $i < 4; $i++):
     </div>
     <div class="footer-bottom">
       © <?= date('Y') ?> <?= $siteName ?>. All rights reserved. ·
-      <a href="/homestay/admin/">Admin</a> ·
-      <a href="/homestay/feed.php">รีวิว</a>
+      <a href="/admin/">Admin</a> ·
+      <a href="/feed.php">รีวิว</a>
     </div>
   </div>
 </footer>
@@ -651,7 +651,7 @@ for ($i = 0; $i < 4; $i++):
 @media(max-width:640px){ .qstat-inner{gap:.875rem} .qstat-div{display:none} }
 </style>
 
-<script src="/homestay/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 <script>
 // Lightbox
 function openLightbox(src, caption) {
@@ -683,7 +683,7 @@ document.querySelectorAll('.gal-filter').forEach(btn => {
 // Like
 async function likeComment(id, btn) {
   try {
-    const res = await fetch('/homestay/api/comments.php', {
+    const res = await fetch('/api/comments.php', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({action:'like', id})

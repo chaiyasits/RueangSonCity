@@ -78,8 +78,8 @@ $recentUploads = $db->query("SELECT * FROM gallery ORDER BY created_at DESC LIMI
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>อัพโหลดรูปภาพ - Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
-<link rel="stylesheet" href="/homestay/assets/css/admin.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body class="admin-body">
 <?php include __DIR__ . '/partials/sidebar.php'; ?>
@@ -179,7 +179,7 @@ $recentUploads = $db->query("SELECT * FROM gallery ORDER BY created_at DESC LIMI
             <?php foreach ($rooms as $r): ?>
             <div class="cover-item">
               <?php if (!empty($r['cover_image'])): ?>
-              <img src="/homestay/uploads/rooms/<?= sanitize($r['cover_image']) ?>" alt="">
+              <img src="/uploads/rooms/<?= sanitize($r['cover_image']) ?>" alt="">
               <?php else: ?>
               <div class="no-cover">ยังไม่มีรูป</div>
               <?php endif; ?>
@@ -195,13 +195,13 @@ $recentUploads = $db->query("SELECT * FROM gallery ORDER BY created_at DESC LIMI
     <div class="recent-uploads-section">
       <div class="section-header-admin">
         <h3>รูปภาพล่าสุด</h3>
-        <a href="/homestay/admin/gallery.php" class="card-link">จัดการทั้งหมด →</a>
+        <a href="/admin/gallery.php" class="card-link">จัดการทั้งหมด →</a>
       </div>
       <?php if (!empty($recentUploads)): ?>
       <div class="upload-thumb-grid">
         <?php foreach ($recentUploads as $img): ?>
         <div class="upload-thumb">
-          <img src="/homestay/uploads/<?= sanitize($img['category'] === 'environment' ? 'environment' : ($img['category'] === 'rooms' ? 'rooms' : 'gallery')) ?>/<?= sanitize($img['filename']) ?>" alt="">
+          <img src="/uploads/<?= sanitize($img['category'] === 'environment' ? 'environment' : ($img['category'] === 'rooms' ? 'rooms' : 'gallery')) ?>/<?= sanitize($img['filename']) ?>" alt="">
           <div class="thumb-info">
             <small><?= sanitize($img['category']) ?></small>
             <small><?= date('d/m/y', strtotime($img['created_at'])) ?></small>
@@ -260,6 +260,6 @@ function updateCategory(radio) {
   // visual update only
 }
 </script>
-<script src="/homestay/assets/js/admin.js"></script>
+<script src="/assets/js/admin.js"></script>
 </body>
 </html>

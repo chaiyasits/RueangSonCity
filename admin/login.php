@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../includes/auth.php';
 
 if (isAdminLoggedIn()) {
-    header('Location: /homestay/admin/');
+    header('Location: /admin/');
     exit;
 }
 
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     if (adminLogin($username, $password)) {
-        header('Location: /homestay/admin/');
+        header('Location: /admin/');
         exit;
     }
     $error = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Login — RueangSonCity</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="admin-login-page">
 <div class="login-wrap">
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-hint">
       <small>Default: admin / admin1234</small>
     </div>
-    <a href="/homestay/" class="back-link">← กลับสู่หน้าเว็บ</a>
+    <a href="/" class="back-link">← กลับสู่หน้าเว็บ</a>
   </div>
 </div>
 </body>

@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $db->prepare("INSERT INTO comments (author_name, content, rating, platform, images) VALUES (?, ?, ?, ?, ?)")
            ->execute([$name, $content, $rating, $commentPlatform, json_encode($images)]);
         $postSuccess = true;
-        header('Location: /homestay/feed.php?posted=1#reviews-list');
+        header('Location: /feed.php?posted=1#reviews-list');
         exit;
     }
 }
@@ -64,18 +64,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รีวิว & Community — <?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?></title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="feed-page">
 
 <nav class="navbar scrolled">
   <div class="nav-container">
-    <a href="/homestay/" class="nav-brand"><span class="brand-icon">🌿</span><span><?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?></span></a>
+    <a href="/" class="nav-brand"><span class="brand-icon">🌿</span><span><?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?></span></a>
     <ul class="nav-links">
-      <li><a href="/homestay/">หน้าหลัก</a></li>
-      <li><a href="/homestay/#rooms">ห้องพัก</a></li>
-      <li><a href="/homestay/#pets">Pet Friendly</a></li>
-      <li><a href="/homestay/booking.php" class="btn-nav-book">จองที่พัก</a></li>
+      <li><a href="/">หน้าหลัก</a></li>
+      <li><a href="/#rooms">ห้องพัก</a></li>
+      <li><a href="/#pets">Pet Friendly</a></li>
+      <li><a href="/booking.php" class="btn-nav-book">จองที่พัก</a></li>
     </ul>
   </div>
 </nav>
@@ -149,8 +149,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         if (!empty($imgs)): ?>
       <div class="feed-images">
         <?php foreach (array_slice($imgs, 0, 3) as $img): ?>
-        <div class="feed-img-thumb" onclick="openImgModal('/homestay/uploads/gallery/<?= sanitize($img) ?>')">
-          <img src="/homestay/uploads/gallery/<?= sanitize($img) ?>" alt="">
+        <div class="feed-img-thumb" onclick="openImgModal('/uploads/gallery/<?= sanitize($img) ?>')">
+          <img src="/uploads/gallery/<?= sanitize($img) ?>" alt="">
         </div>
         <?php endforeach; ?>
       </div>
@@ -250,9 +250,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
   <div class="container">
     <div class="footer-bottom">
       © <?= date('Y') ?> <?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?> ·
-      <a href="/homestay/">หน้าหลัก</a> ·
-      <a href="/homestay/booking.php">จองที่พัก</a> ·
-      <a href="/homestay/#pets">Pet Friendly</a>
+      <a href="/">หน้าหลัก</a> ·
+      <a href="/booking.php">จองที่พัก</a> ·
+      <a href="/#pets">Pet Friendly</a>
     </div>
   </div>
 </footer>
@@ -294,7 +294,7 @@ function openImgModal(src) {
 
 async function likeComment(id, btn) {
   try {
-    const res = await fetch('/homestay/api/comments.php', {
+    const res = await fetch('/api/comments.php', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({action: 'like', id})

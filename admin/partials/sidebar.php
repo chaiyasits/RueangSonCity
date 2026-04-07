@@ -8,7 +8,7 @@ function navItem($href, $icon, $label, $current) {
 ?>
 <aside class="admin-sidebar" id="adminSidebar">
   <div class="sidebar-header">
-    <a href="/homestay/admin/" class="sidebar-brand">
+    <a href="/admin/" class="sidebar-brand">
       <span class="brand-icon">🌿</span>
       <span class="brand-text">Homestay Admin</span>
     </a>
@@ -16,18 +16,18 @@ function navItem($href, $icon, $label, $current) {
   </div>
   <nav class="sidebar-nav">
     <ul>
-      <?php navItem('/homestay/admin/index.php', '📊', 'Dashboard', $currentPage); ?>
-      <?php navItem('/homestay/admin/bookings.php', '📅', 'การจอง', $currentPage); ?>
-      <?php navItem('/homestay/admin/rooms.php', '🏠', 'ห้องพัก', $currentPage); ?>
-      <?php navItem('/homestay/admin/upload.php', '📷', 'อัพโหลดรูปภาพ', $currentPage); ?>
-      <?php navItem('/homestay/admin/gallery.php', '🖼️', 'จัดการแกลเลอรี่', $currentPage); ?>
-      <?php navItem('/homestay/admin/comments.php', '💬', 'รีวิว & คอมเมนต์', $currentPage); ?>
-      <?php navItem('/homestay/admin/settings.php', '⚙️', 'ตั้งค่า', $currentPage); ?>
+      <?php navItem('/admin/index.php', '📊', 'Dashboard', $currentPage); ?>
+      <?php navItem('/admin/bookings.php', '📅', 'การจอง', $currentPage); ?>
+      <?php navItem('/admin/rooms.php', '🏠', 'ห้องพัก', $currentPage); ?>
+      <?php navItem('/admin/upload.php', '📷', 'อัพโหลดรูปภาพ', $currentPage); ?>
+      <?php navItem('/admin/gallery.php', '🖼️', 'จัดการแกลเลอรี่', $currentPage); ?>
+      <?php navItem('/admin/comments.php', '💬', 'รีวิว & คอมเมนต์', $currentPage); ?>
+      <?php navItem('/admin/settings.php', '⚙️', 'ตั้งค่า', $currentPage); ?>
     </ul>
   </nav>
   <div class="sidebar-footer">
-    <a href="/homestay/" target="_blank" class="sidebar-view-web">🌐 ดูเว็บไซต์</a>
-    <a href="/homestay/admin/logout.php" class="sidebar-logout">🚪 ออกจากระบบ</a>
+    <a href="/" target="_blank" class="sidebar-view-web">🌐 ดูเว็บไซต์</a>
+    <a href="/admin/logout.php" class="sidebar-logout">🚪 ออกจากระบบ</a>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>

@@ -49,8 +49,8 @@ foreach (['all','pending','confirmed','cancelled','completed'] as $s) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>การจอง - Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
-<link rel="stylesheet" href="/homestay/assets/css/admin.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body class="admin-body">
 <?php include __DIR__ . '/partials/sidebar.php'; ?>
@@ -184,6 +184,6 @@ function showBookingDetail(b) {
   document.getElementById('bookingModal').style.display = 'flex';
 }
 </script>
-<script src="/homestay/assets/js/admin.js"></script>
+<script src="/assets/js/admin.js"></script>
 </body>
 </html>

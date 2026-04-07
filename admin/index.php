@@ -25,8 +25,8 @@ $recentComments = $db->query("SELECT * FROM comments ORDER BY created_at DESC LI
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard - <?= sanitize($settings['homestay_name'] ?? 'Homestay') ?></title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
-<link rel="stylesheet" href="/homestay/assets/css/admin.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body class="admin-body">
 
@@ -84,7 +84,7 @@ $recentComments = $db->query("SELECT * FROM comments ORDER BY created_at DESC LI
       <div class="dashboard-card">
         <div class="card-header">
           <h3>การจองล่าสุด</h3>
-          <a href="/homestay/admin/bookings.php" class="card-link">ดูทั้งหมด →</a>
+          <a href="/admin/bookings.php" class="card-link">ดูทั้งหมด →</a>
         </div>
         <div class="table-wrap">
           <table class="admin-table">
@@ -108,7 +108,7 @@ $recentComments = $db->query("SELECT * FROM comments ORDER BY created_at DESC LI
       <div class="dashboard-card">
         <div class="card-header">
           <h3>รีวิวล่าสุด</h3>
-          <a href="/homestay/admin/comments.php" class="card-link">ดูทั้งหมด →</a>
+          <a href="/admin/comments.php" class="card-link">ดูทั้งหมด →</a>
         </div>
         <div class="recent-comments-list">
           <?php foreach ($recentComments as $c): ?>
@@ -132,17 +132,17 @@ $recentComments = $db->query("SELECT * FROM comments ORDER BY created_at DESC LI
     <div class="quick-actions">
       <h3>Quick Actions</h3>
       <div class="quick-action-grid">
-        <a href="/homestay/admin/upload.php" class="quick-action-btn">📷 อัพโหลดรูปภาพ</a>
-        <a href="/homestay/admin/bookings.php" class="quick-action-btn">📅 จัดการการจอง</a>
-        <a href="/homestay/admin/comments.php" class="quick-action-btn">💬 จัดการรีวิว</a>
-        <a href="/homestay/admin/rooms.php" class="quick-action-btn">🏠 จัดการห้องพัก</a>
-        <a href="/homestay/admin/settings.php" class="quick-action-btn">⚙️ ตั้งค่าเว็บไซต์</a>
-        <a href="/homestay/" target="_blank" class="quick-action-btn">🌐 ดูหน้าเว็บ</a>
+        <a href="/admin/upload.php" class="quick-action-btn">📷 อัพโหลดรูปภาพ</a>
+        <a href="/admin/bookings.php" class="quick-action-btn">📅 จัดการการจอง</a>
+        <a href="/admin/comments.php" class="quick-action-btn">💬 จัดการรีวิว</a>
+        <a href="/admin/rooms.php" class="quick-action-btn">🏠 จัดการห้องพัก</a>
+        <a href="/admin/settings.php" class="quick-action-btn">⚙️ ตั้งค่าเว็บไซต์</a>
+        <a href="/" target="_blank" class="quick-action-btn">🌐 ดูหน้าเว็บ</a>
       </div>
     </div>
   </div>
 </div>
 
-<script src="/homestay/assets/js/admin.js"></script>
+<script src="/assets/js/admin.js"></script>
 </body>
 </html>

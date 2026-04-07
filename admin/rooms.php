@@ -48,8 +48,8 @@ $rooms = $db->query("SELECT r.*, COUNT(b.id) as booking_count FROM rooms r LEFT 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ห้องพัก - Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
-<link rel="stylesheet" href="/homestay/assets/css/admin.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body class="admin-body">
 <?php include __DIR__ . '/partials/sidebar.php'; ?>
@@ -68,7 +68,7 @@ $rooms = $db->query("SELECT r.*, COUNT(b.id) as booking_count FROM rooms r LEFT 
       <div class="room-admin-card <?= !$r['is_active'] ? 'inactive' : '' ?>">
         <div class="room-admin-img">
           <?php if (!empty($r['cover_image'])): ?>
-          <img src="/homestay/uploads/rooms/<?= sanitize($r['cover_image']) ?>" alt="">
+          <img src="/uploads/rooms/<?= sanitize($r['cover_image']) ?>" alt="">
           <?php else: ?>
           <div class="no-room-img">🏠</div>
           <?php endif; ?>
@@ -84,7 +84,7 @@ $rooms = $db->query("SELECT r.*, COUNT(b.id) as booking_count FROM rooms r LEFT 
           </div>
           <div class="room-admin-actions">
             <button class="btn-sm btn-info" onclick="openRoomModal(<?= htmlspecialchars(json_encode($r)) ?>)">✏️ แก้ไข</button>
-            <a href="/homestay/admin/upload.php" class="btn-sm btn-secondary">📷 รูปปก</a>
+            <a href="/admin/upload.php" class="btn-sm btn-secondary">📷 รูปปก</a>
             <form method="POST" style="display:inline">
               <input type="hidden" name="action" value="toggle">
               <input type="hidden" name="id" value="<?= $r['id'] ?>">
@@ -175,6 +175,6 @@ function openRoomModal(room) {
   document.getElementById('roomModal').style.display = 'flex';
 }
 </script>
-<script src="/homestay/assets/js/admin.js"></script>
+<script src="/assets/js/admin.js"></script>
 </body>
 </html>

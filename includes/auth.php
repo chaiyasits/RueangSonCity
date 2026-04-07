@@ -14,7 +14,7 @@ function isAdminLoggedIn() {
 
 function requireAdmin() {
     if (!isAdminLoggedIn()) {
-        header('Location: /homestay/admin/login.php');
+        header('Location: /admin/login.php');
         exit;
     }
 }
@@ -36,6 +36,6 @@ function adminLogin($username, $password) {
 function adminLogout() {
     startSession();
     session_destroy();
-    header('Location: /homestay/admin/login.php');
+    header('Location: /admin/login.php');
     exit;
 }

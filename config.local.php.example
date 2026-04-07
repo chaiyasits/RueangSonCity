@@ -9,4 +9,4 @@ putenv('DB_TYPE=mysql');
 putenv('DB_HOST=sql123.infinityfree.com');   // เปลี่ยนเป็น hostname จาก InfinityFree cPanel
 putenv('DB_NAME=if0_12345678_homestay');      // เปลี่ยนเป็น database name ของคุณ
 putenv('DB_USER=if0_12345678');               // เปลี่ยนเป็น username ของคุณ
-putenv('DB_PASS=your_password_here');         // เปลี่ยนเป็น password ของคุณ
+putenv('DB_PASS=JGajHUtk38YAY');         // เปลี่ยนเป็น password ของคุณ

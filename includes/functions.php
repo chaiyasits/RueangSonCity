@@ -12,7 +12,7 @@ function uploadImage($file, $dir = 'gallery', $allowedTypes = ['image/jpeg','ima
     $dest = $uploadDir . $filename;
 
     if (move_uploaded_file($file['tmp_name'], $dest)) {
-        return ['success' => true, 'filename' => $filename, 'path' => '/homestay/uploads/' . $dir . '/' . $filename];
+        return ['success' => true, 'filename' => $filename, 'path' => '/uploads/' . $dir . '/' . $filename];
     }
     return ['error' => 'Failed to save file'];
 }

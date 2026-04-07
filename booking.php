@@ -63,18 +63,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>จองที่พัก — <?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?></title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="booking-page">
 
 <nav class="navbar scrolled">
   <div class="nav-container">
-    <a href="/homestay/" class="nav-brand"><span class="brand-icon">🌿</span><span><?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?></span></a>
+    <a href="/" class="nav-brand"><span class="brand-icon">🌿</span><span><?= sanitize($settings['homestay_name'] ?? 'RueangSonCity') ?></span></a>
     <ul class="nav-links">
-      <li><a href="/homestay/">หน้าหลัก</a></li>
-      <li><a href="/homestay/#rooms">ห้องพัก</a></li>
-      <li><a href="/homestay/#pets">Pet Friendly</a></li>
-      <li><a href="/homestay/feed.php">รีวิว</a></li>
+      <li><a href="/">หน้าหลัก</a></li>
+      <li><a href="/#rooms">ห้องพัก</a></li>
+      <li><a href="/#pets">Pet Friendly</a></li>
+      <li><a href="/feed.php">รีวิว</a></li>
     </ul>
   </div>
 </nav>
@@ -93,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p>เราจะติดต่อกลับเพื่อยืนยันการจองไปที่อีเมล <strong><?= sanitize($guestEmail) ?></strong></p>
     <p>หรือสามารถติดต่อสอบถามได้ที่ <?= sanitize($settings['phone'] ?? '') ?></p>
     <div class="success-actions">
-      <a href="/homestay/" class="btn-primary">กลับหน้าหลัก</a>
-      <a href="/homestay/booking.php" class="btn-outline-dark">จองเพิ่มเติม</a>
+      <a href="/" class="btn-primary">กลับหน้าหลัก</a>
+      <a href="/booking.php" class="btn-outline-dark">จองเพิ่มเติม</a>
     </div>
   </div>
   <?php else: ?>
@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="room-mini-card <?= $selectedRoom == $r['id'] ? 'selected' : '' ?>" onclick="selectRoom(<?= $r['id'] ?>)">
           <div class="room-mini-img">
             <?php if (!empty($r['cover_image'])): ?>
-            <img src="/homestay/uploads/rooms/<?= sanitize($r['cover_image']) ?>" alt="">
+            <img src="/uploads/rooms/<?= sanitize($r['cover_image']) ?>" alt="">
             <?php else: ?>
             <span>🏠</span>
             <?php endif; ?>

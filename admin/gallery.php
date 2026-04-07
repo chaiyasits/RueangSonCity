@@ -41,8 +41,8 @@ $heroImage = getSetting('hero_image');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>แกลเลอรี่ - Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/homestay/assets/css/style.css">
-<link rel="stylesheet" href="/homestay/assets/css/admin.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body class="admin-body">
 <?php include __DIR__ . '/partials/sidebar.php'; ?>
@@ -54,7 +54,7 @@ $heroImage = getSetting('hero_image');
         <h1>🖼️ จัดการแกลเลอรี่</h1>
         <p>รูปภาพทั้งหมดในระบบ</p>
       </div>
-      <a href="/homestay/admin/upload.php" class="btn-primary">+ อัพโหลดรูปใหม่</a>
+      <a href="/admin/upload.php" class="btn-primary">+ อัพโหลดรูปใหม่</a>
     </div>
 
     <?php if ($message): ?><div class="alert-success">✅ <?= sanitize($message) ?></div><?php endif; ?>
@@ -68,7 +68,7 @@ $heroImage = getSetting('hero_image');
     <?php if (empty($images)): ?>
     <div class="empty-state-admin">
       <p>ยังไม่มีรูปภาพในหมวดนี้</p>
-      <a href="/homestay/admin/upload.php" class="btn-primary">อัพโหลดรูปภาพ</a>
+      <a href="/admin/upload.php" class="btn-primary">อัพโหลดรูปภาพ</a>
     </div>
     <?php else: ?>
     <div class="gallery-admin-grid">
@@ -79,7 +79,7 @@ $heroImage = getSetting('hero_image');
       ?>
       <div class="gallery-admin-item <?= $isHero ? 'is-hero' : '' ?>">
         <?php if ($isHero): ?><div class="hero-badge-admin">🌟 Hero</div><?php endif; ?>
-        <img src="/homestay/uploads/<?= $subDir ?>/<?= sanitize($img['filename']) ?>" alt="" loading="lazy">
+        <img src="/uploads/<?= $subDir ?>/<?= sanitize($img['filename']) ?>" alt="" loading="lazy">
         <div class="gallery-item-overlay">
           <div class="gallery-item-actions">
             <form method="POST" style="display:inline">
@@ -134,6 +134,6 @@ function editCaption(id, caption) {
   document.getElementById('captionModal').style.display = 'flex';
 }
 </script>
-<script src="/homestay/assets/js/admin.js"></script>
+<script src="/assets/js/admin.js"></script>
 </body>
 </html>
