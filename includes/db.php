@@ -15,14 +15,15 @@ unset($_configLocal);
 function getDB() {
     static $db = null;
     if ($db === null) {
-        $type = getenv('DB_TYPE') ?: 'sqlite';
+        // Support both PHP constants (shared hosting) and env vars (Docker/CLI)
+        $type = defined('DB_TYPE') ? DB_TYPE : (getenv('DB_TYPE') ?: 'sqlite');
         try {
             if ($type === 'mysql') {
-                $host   = getenv('DB_HOST')     ?: 'localhost';
-                $name   = getenv('DB_NAME')     ?: 'homestay';
-                $user   = getenv('DB_USER')     ?: 'root';
-                $pass   = getenv('DB_PASS')     ?: '';
-                $port   = getenv('DB_PORT')     ?: '3306';
+                $host   = defined('DB_HOST') ? DB_HOST : (getenv('DB_HOST') ?: 'localhost');
+                $name   = defined('DB_NAME') ? DB_NAME : (getenv('DB_NAME') ?: 'homestay');
+                $user   = defined('DB_USER') ? DB_USER : (getenv('DB_USER') ?: 'root');
+                $pass   = defined('DB_PASS') ? DB_PASS : (getenv('DB_PASS') ?: '');
+                $port   = defined('DB_PORT') ? DB_PORT : (getenv('DB_PORT') ?: '3306');
                 $dsn    = "mysql:host={$host};port={$port};dbname={$name};charset=utf8mb4";
                 $db = new PDO($dsn, $user, $pass, [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -45,6 +46,7 @@ function getDB() {
 }
 
 function dbType() {
+    if (defined('DB_TYPE')) return DB_TYPE;
     return getenv('DB_TYPE') ?: 'sqlite';
 }
 
