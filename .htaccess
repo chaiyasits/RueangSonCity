@@ -16,3 +16,13 @@ DirectoryIndex index.php
 php_value upload_max_filesize 20M
 php_value post_max_size 25M
 php_value max_file_uploads 20
+
+# Browser cache for static files
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png  "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType text/css   "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
