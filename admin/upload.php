@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                    ->execute([$result['filename'], $caption ?: $file['name'], $category]);
 
                 if ($setHero && $i === 0 && $category === 'gallery') {
-                    $db->prepare("UPDATE settings SET value = ? WHERE key = 'hero_image'")->execute([$result['filename']]);
+                    $db->prepare("UPDATE settings SET value = ? WHERE  = 'hero_image'")->execute([$result['filename']]);
                 }
                 $uploaded++;
             }

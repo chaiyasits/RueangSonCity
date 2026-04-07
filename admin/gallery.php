@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->prepare("UPDATE gallery SET caption = ? WHERE id = ?")->execute([sanitize($_POST['caption']), $id]);
         $message = "อัพเดทคำบรรยายสำเร็จ";
     } elseif ($_POST['action'] === 'set_hero') {
-        $db->prepare("UPDATE settings SET value = ? WHERE key = 'hero_image'")->execute([sanitize($_POST['filename'])]);
+        $db->prepare("UPDATE settings SET value = ? WHERE `key` = 'hero_image'")->execute([sanitize($_POST['filename'])]);
         $message = "ตั้งเป็นรูป Hero สำเร็จ";
     }
 }
