@@ -56,8 +56,9 @@ function sqlAutoInc() {
 }
 
 function initDB($db, $type = 'sqlite') {
-    $ai = ($type === 'mysql') ? 'INT AUTO_INCREMENT PRIMARY KEY' : 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    $dt = ($type === 'mysql') ? 'DATETIME DEFAULT CURRENT_TIMESTAMP' : 'DATETIME DEFAULT CURRENT_TIMESTAMP';
+    $ai      = ($type === 'mysql') ? 'INT AUTO_INCREMENT PRIMARY KEY' : 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    $dt      = 'DATETIME DEFAULT CURRENT_TIMESTAMP';
+    $charset = ($type === 'mysql') ? ' DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci' : '';
 
     $tables = "
         CREATE TABLE IF NOT EXISTS rooms (
@@ -70,7 +71,7 @@ function initDB($db, $type = 'sqlite') {
             cover_image VARCHAR(255),
             is_active TINYINT DEFAULT 1,
             created_at {$dt}
-        );
+        ){$charset};
         CREATE TABLE IF NOT EXISTS bookings (
             id {$ai},
             room_id INT,
@@ -84,7 +85,7 @@ function initDB($db, $type = 'sqlite') {
             status VARCHAR(20) DEFAULT 'pending',
             special_requests TEXT,
             created_at {$dt}
-        );
+        ){$charset};
         CREATE TABLE IF NOT EXISTS comments (
             id {$ai},
             author_name VARCHAR(255) NOT NULL,
@@ -96,7 +97,7 @@ function initDB($db, $type = 'sqlite') {
             images TEXT,
             is_approved TINYINT DEFAULT 1,
             created_at {$dt}
-        );
+        ){$charset};
         CREATE TABLE IF NOT EXISTS gallery (
             id {$ai},
             filename VARCHAR(255) NOT NULL,
@@ -104,17 +105,17 @@ function initDB($db, $type = 'sqlite') {
             category VARCHAR(50) DEFAULT 'gallery',
             sort_order INT DEFAULT 0,
             created_at {$dt}
-        );
+        ){$charset};
         CREATE TABLE IF NOT EXISTS admin_users (
             id {$ai},
             username VARCHAR(100) UNIQUE NOT NULL,
             password VARCHAR(255) NOT NULL,
             created_at {$dt}
-        );
+        ){$charset};
         CREATE TABLE IF NOT EXISTS settings (
             " . ($type === 'mysql' ? '`key`' : 'key') . " VARCHAR(100) PRIMARY KEY,
             value TEXT
-        );
+        ){$charset};
     ";
 
     // MySQL can't run multi-statement CREATE in one exec — split them
