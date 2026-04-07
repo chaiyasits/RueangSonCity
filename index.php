@@ -12,7 +12,15 @@ $envPics  = $db->query("SELECT * FROM gallery WHERE category = 'environment' ORD
 $avgRating = $db->query("SELECT AVG(rating) as avg, COUNT(*) as total FROM comments WHERE is_approved = 1")->fetch();
 $platforms = $db->query("SELECT platform, COUNT(*) as cnt FROM comments WHERE is_approved = 1 GROUP BY platform ORDER BY cnt DESC")->fetchAll();
 
-$heroImage = $settings['hero_image'] ?? '';
+$heroImageFile = $settings['hero_image'] ?? '';
+$heroImagePath = '';
+if (!empty($heroImageFile)) {
+    $heroRow = $db->prepare("SELECT category FROM gallery WHERE filename = ? LIMIT 1");
+    $heroRow->execute([$heroImageFile]);
+    $heroRowData = $heroRow->fetch();
+    $heroDir = $heroRowData ? $heroRowData['category'] : 'gallery';
+    $heroImagePath = '/uploads/' . $heroDir . '/' . $heroImageFile;
+}
 $siteName  = sanitize($settings['homestay_name'] ?? 'RueangSonCity');
 
 // Helper: resolve gallery image path
@@ -61,8 +69,8 @@ function galPath($img)
 <!-- ====== HERO ====== -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <?php if (!empty($heroImage)): ?>
-      <img src="/uploads/gallery/<?= sanitize($heroImage) ?>" alt="<?= $siteName ?>" class="hero-bg-img">
+    <?php if (!empty($heroImagePath)): ?>
+      <img src="<?= $heroImagePath ?>" alt="<?= $siteName ?>" class="hero-bg-img">
     <?php else: ?>
       <div class="hero-gradient"></div>
     <?php endif; ?>
