@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(php import_pics.php)",
+      "Bash(php -r \"require ''includes/db.php''; $db=getDB\\(\\); print_r\\($db->query\\(''SELECT id,name,cover_image FROM rooms''\\)->fetchAll\\(PDO::FETCH_ASSOC\\)\\);\")",
+      "Bash(php -r \"require ''includes/db.php''; $db=getDB\\(\\); $rows=$db->query\\(''SELECT id,name,cover_image FROM rooms''\\)->fetchAll\\(\\); foreach\\($rows as $r\\) echo $r[''id''].'': ''.$r[''name''].'' -> ''.\\($r[''cover_image'']??''none''\\).PHP_EOL;\")",
+      "Bash(php -r \"require_once ''includes/db.php''; echo ''ok'';\")",
+      "Bash(php -r \"require_once ''includes/db.php''; $db=getDB\\(\\); foreach\\($db->query\\(''SELECT id,name,cover_image FROM rooms''\\)->fetchAll\\(\\) as $r\\){echo $r[''id''].'': ''.$r[''name''].'' => ''.$r[''cover_image''].''\\\\n'';}\")",
+      "Bash(php check_db.php)",
+      "Bash(php fix_data.php)",
+      "Bash(ls D:/wwwroot/homestay/uploads/rooms/*.jpg)",
+      "Bash(ls D:/wwwroot/homestay/uploads/environment/*.jpg)",
+      "Bash(ls D:/wwwroot/homestay/uploads/gallery/*.jpg)",
+      "Bash(php -r \":*)",
+      "Bash(cp pic/20260405_162312.jpg uploads/environment/)",
+      "WebSearch"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+<?php
+/**
+ * Production config — copy this file to config.local.php on the server
+ * and fill in your InfinityFree MySQL credentials.
+ * DO NOT commit config.local.php to git.
+ */
+
+putenv('DB_TYPE=mysql');
+putenv('DB_HOST=sql123.infinityfree.com');   // เปลี่ยนเป็น hostname จาก InfinityFree cPanel
+putenv('DB_NAME=if0_12345678_homestay');      // เปลี่ยนเป็น database name ของคุณ
+putenv('DB_USER=if0_12345678');               // เปลี่ยนเป็น username ของคุณ
+putenv('DB_PASS=your_password_here');         // เปลี่ยนเป็น password ของคุณ

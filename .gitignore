@@ -1,0 +1,19 @@
+# Local database (use MySQL on production)
+database.sqlite
+
+# Local config with DB credentials (create this manually on server)
+config.local.php
+
+# Original photos (already copied to uploads/)
+pic/
+
+# One-time fix scripts
+fix_data.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp

@@ -1,0 +1,18 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<FilesMatch "\.sqlite$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(php)$">
+    <FilesMatch "database\.sqlite$">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
+</FilesMatch>
+
+php_value upload_max_filesize 20M
+php_value post_max_size 25M
+php_value max_file_uploads 20
